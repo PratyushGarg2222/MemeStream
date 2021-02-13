@@ -4,7 +4,7 @@
   "description": "Meme Sharing Site for Devs",
   "main": "index.js",
   "scripts": {
-    "start": "node server",   
+    "start": "node server",
     "server": "nodemon server"
   },
   "repository": {
@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/PratyushGarg2222/MemeStream#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "check": "^1.0.0",
     "config": "^3.3.3",
     "express": "^4.17.1",
     "express-validator": "^6.9.2",

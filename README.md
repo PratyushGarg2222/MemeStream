@@ -3,6 +3,8 @@ Express: For node
 Express-validator : Used for validation, Raises error if API requests are not correct
 config: Global Variables
 mongoose: Allows interaction with database
+body-parser: For JSON
+check: validation
 
 All of these are pretty standard ones. 
 
