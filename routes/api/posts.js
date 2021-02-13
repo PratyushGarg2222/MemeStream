@@ -83,14 +83,9 @@ app.get("/", async (req, res) => {
 
     try{
 
-        //Get all memes
-        let posts = await Post.find();
-
-        //Sort them as latest first
-        posts = posts.reverse();
-
-        //Only 100 memes are to be displayed
-        posts.slice(0, 100);
+        //Get all memes sorted from newest to oldest, and limit to 100
+        //This will limit the retrieval time
+        let posts = await Post.find().sort({_id:-1}).limit(100);
 
         let resObj = [];
 
