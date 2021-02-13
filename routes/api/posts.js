@@ -83,14 +83,101 @@ app.get("/", async (req, res) => {
 
     try{
 
+        //Get all memes
         let posts = await Post.find();
+
+        //Sort them as latest first
         posts = posts.reverse();
+
+        //Only 100 memes are to be displayed
         posts.slice(0, 100);
-        res.json(posts);
+
+        let resObj = [];
+
+        //Formatting the post object to suite the response needs
+        for(let i=0; i<posts.length; i++){
+
+            const idVal = posts[i]['_id'];
+            const nameVal = posts[i]['name'];
+            const urlVal = posts[i]['url'];
+            const captionVal = posts[i]['caption'];
+
+            resObj.push({
+
+
+                "id": idVal,
+                "name": nameVal,
+                "url": urlVal,
+                "caption": captionVal,
+
+            });
+
+
+        }
+
+        //Return response
+        res.json(resObj);
 
     }catch(err){
 
         console.error(err.message);
+        res.status(500).send('Server Error');
+
+    }
+
+
+});
+
+
+//GET Specific meme route
+app.get("/:id", async (req, res) => {
+
+    try{
+
+        //Getting the Meme by id
+        let post = await Post.findById(req.params.id);
+
+        //If the meme does not exist
+        if(!post){
+
+            return res.status(404).json({
+                msg: "Meme not Found",
+            });
+
+        }
+
+        //Adjusting the response object to suite API needs
+        let resObj;
+        const idVal = post['_id'];
+        const nameVal = post['name'];
+        const urlVal = post['url'];
+        const captionVal = post['caption'];
+
+        resObj = {
+
+            "id": idVal,
+            "name": nameVal,
+            "url": urlVal,
+            "caption": captionVal,
+
+        }
+
+        res.json(resObj);
+
+    }catch(err){
+
+        console.error(err.message);
+
+        //This means that the id format is corrupt
+        if(err.kind === 'ObjectId'){
+
+            return res.status(404).json({
+                msg: "Meme not Found",
+            });
+
+        }
+
+        //Else some other server error
         res.status(500).send('Server Error');
 
     }
