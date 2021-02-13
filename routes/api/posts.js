@@ -1,4 +1,5 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const { check, validationResult } = require('express-validator');
 
@@ -179,5 +180,53 @@ app.get("/:id", async (req, res) => {
 
 
 });
+
+
+//PATCH Request for modifying meme
+app.patch('/:id', async(req,res) => {
+
+    try{
+
+        //Checking if meme exists
+        const post = await Post.findById(req.params.id);
+
+        if(!post){
+
+            return res.status(404).json({
+                msg: "Meme Not Found"
+            });
+
+        }
+
+        //Getting the new URL and Captions
+        let updatedUrl = post['url'];
+        let updatedCaption = post['caption'];
+
+        if(req.body.url)
+            updatedUrl = req.body.url;
+        
+        if(req.body.caption)
+            updatedCaption = req.body.caption;
+
+        const updatedObj = {
+
+            "url": updatedUrl,
+            "caption": updatedCaption,
+
+        };
+
+        //Update MEME
+        const updatedMeme = await Post.findByIdAndUpdate(req.params.id, updatedObj);
+        
+        res.sendStatus(200);
+
+    }catch(err){
+
+        console.error(err.message);
+        res.status(500).send('Server error');
+
+    }
+
+})
 
 module.exports = app;
