@@ -1,0 +1,31 @@
+{
+  "name": "memestream",
+  "version": "1.0.0",
+  "description": "Meme Sharing Site for Devs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server",   
+    "server": "nodemon server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PratyushGarg2222/MemeStream.git"
+  },
+  "author": "Pratyush Garg",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PratyushGarg2222/MemeStream/issues"
+  },
+  "homepage": "https://github.com/PratyushGarg2222/MemeStream#readme",
+  "dependencies": {
+    "config": "^3.3.3",
+    "express": "^4.17.1",
+    "express-validator": "^6.9.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.16"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.7"
+  }
+}
