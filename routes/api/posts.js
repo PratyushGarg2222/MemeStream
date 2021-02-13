@@ -7,6 +7,8 @@ app.use(bodyParser.json());
 
 const Post = require('../../models/posts');
 
+
+//POST MEME ROUTE
 app.post('/',
     
     //Implementing Validation
@@ -71,11 +73,29 @@ app.post('/',
 
         }
 
-
-        
-
     }  
     
 );
+
+
+//GET 100 latest Memes Route
+app.get("/", async (req, res) => {
+
+    try{
+
+        let posts = await Post.find();
+        posts = posts.reverse();
+        posts.slice(0, 100);
+        res.json(posts);
+
+    }catch(err){
+
+        console.error(err.message);
+        res.status(500).send('Server Error');
+
+    }
+
+
+});
 
 module.exports = app;
