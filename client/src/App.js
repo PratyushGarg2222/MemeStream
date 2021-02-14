@@ -1,18 +1,20 @@
-import React from 'react';
-import './App.css';
+import React, {Fragment} from 'react';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
-import Navbar from './components/NavBar/navbar';
-import Modal from './components/Modal/AddMeme/modal';
+import Mainpage from './components/MainPage/mainpage';
+import SingleMeme from './components/SingleMeme/singleMeme';
 
-const App = () => {
+const App = () => (
 
-  return(
-    <div>
-      <Navbar/>
-      <Modal />
-    </div>
-  )
+  <Router>
 
-}
+     <Fragment>
+       <Route exact path = '/' component = {Mainpage} />
+       <Route exact path = "/:id" component = {SingleMeme} />
+     </Fragment>
+
+  </Router>
+
+);
 
 export default App;

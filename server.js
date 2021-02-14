@@ -1,9 +1,11 @@
 const express = require('express');  //Importing express
 const bodyParser = require('body-parser');
 const connectDB = require('./config/db');
+const cors = require('cors');
 
 const app = express();
 app.use(bodyParser.json());
+app.use(cors());
 
 // Connect Database
 connectDB();

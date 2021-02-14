@@ -1,0 +1,20 @@
+.MemeComponent{
+
+    margin-top: 20px;
+    width: 40vw;
+
+}
+
+.cardBkg{
+
+    background-color: #F4F9F9;
+
+}
+
+.nameAndEdit{
+
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+}
