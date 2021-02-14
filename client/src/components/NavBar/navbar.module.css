@@ -1,0 +1,33 @@
+
+.navBackg{
+
+    background-color: #9a4eae;
+
+}
+
+.icon{
+
+    font-size: 50px;
+    color: #EBD4C2;
+
+}
+
+.brand{
+
+    display: flex;
+    align-items: center;
+    color: 	#E2D5CC;
+    font-size: 40px;
+    font-family: 'Righteous', cursive;
+
+}
+
+.addMemebtn{
+
+    /* #305EA1 */
+    background-color:#1DB954 ;
+    font-size: 22px;
+    font-family: 'Bungee';
+    color: white;
+
+}
