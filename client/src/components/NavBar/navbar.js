@@ -5,7 +5,6 @@ const navbar = (props) => {
 
     let addMeme;
 
-
     //If the add Meme button is to be included in the navbar
     if(props.addMemebtnreq){
 

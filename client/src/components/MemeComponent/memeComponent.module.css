@@ -1,6 +1,7 @@
 .MemeComponent{
 
     margin-top: 20px;
+    margin-bottom: 10px;
     width: 40vw;
 
 }
@@ -8,6 +9,8 @@
 .cardBkg{
 
     background-color: #F4F9F9;
+    /* background-color: #E3E8EC; */
+    border: none;
 
 }
 

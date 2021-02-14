@@ -11,7 +11,7 @@ const memeComponent = (props) => {
 
                         <div className = {classes.nameAndEdit}>
                             <h5 className = "card-title">{props.name}</h5>
-                            <button type = "button" className = "btn btn-primary">Edit</button>
+                            <button type = "button" className = "btn btn-primary"><i class = "fas fa-edit"></i></button>
                         </div>
                         <p className = "card-text">{props.caption}</p>
 
@@ -19,6 +19,8 @@ const memeComponent = (props) => {
                     <img src = {props.url} className = "card-img-bottom" alt = "Meme" />
 
                 </div>
+
+                <hr></hr>
 
         </div>
     );
