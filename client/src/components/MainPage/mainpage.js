@@ -51,10 +51,31 @@ class mainpage extends Component{
 
     render() {
 
+        const newMemeHandler = (idVal, nameVal, captionVal, urlVal) => {
+
+            let currMemesList = this.state.memes;
+            let newMeme = {
+
+                id: idVal,
+                name: nameVal,
+                caption: captionVal,
+                url: urlVal
+
+            }
+
+            currMemesList.unshift(newMeme);
+
+            this.setState({
+                memes: currMemesList,
+
+            });
+
+        }
+
         return (
             <div>
                 <Navbar addMemebtnreq/>
-                <AddMemeModal />
+                <AddMemeModal newMemeHandler = {newMemeHandler}/>
                 {/* <MemeComponent name = "Hello" caption = "This is caption" url = "https://photographylife.com/wp-content/uploads/2017/01/What-is-landscape-photography.jpg"></MemeComponent> */}
 
                 <div className = "container">
